@@ -1,7 +1,9 @@
 package com.pvsoul.datacollection.iotdareceiver.resource;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.pvsoul.datacollection.iotdareceiver.dao.MeteorologicalDataDao;
+import com.pvsoul.datacollection.iotdareceiver.dao.IotdaDataDao;
+import com.pvsoul.datacollection.iotdareceiver.dao.MeteorologicalContentDao;
 import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
 import com.pvsoul.datacollection.iotdareceiver.service.DataReceiveService;
 import lombok.extern.slf4j.Slf4j;
@@ -31,10 +33,11 @@ public class DataReceiveResource {
     @POST
     @Path("/meteorological")
     //@ApiOperation("接收气象数据")
-    public Response pushData(@Context HttpServletRequest request, MeteorologicalDataDao data) {
+    public Response pushData(@Context HttpServletRequest request, IotdaDataDao data) {
 
         log.info(JSONObject.toJSONString(data));
-        ResultDao resultDao = dataReceiveService.SaveData(data.getContent());
+        MeteorologicalContentDao content = JSON.toJavaObject(data.getNotifyData().getBody().getContent(), MeteorologicalContentDao.class);
+        ResultDao resultDao = dataReceiveService.SaveData(content);
         return Response.status(Response.Status.OK).entity(resultDao).build();
     }
 
