@@ -39,5 +39,11 @@
                enableCountByExample="false" selectByExampleQueryId="false"
                enableUpdateByExample="false">
         </table>
+        <table tableName='temperature_data' domainObjectName="TemperatureData"
+               delimitIdentifiers="false" delimitAllColumns="false"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" selectByExampleQueryId="false"
+               enableUpdateByExample="false">
+        </table>
     </context>
 </generatorConfiguration>

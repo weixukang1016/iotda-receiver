@@ -4,7 +4,7 @@ import com.pvsoul.datacollection.iotdareceiver.dao.MeteorologicalContentDao;
 import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
 import com.pvsoul.datacollection.iotdareceiver.entity.MeteorologicalData;
 import com.pvsoul.datacollection.iotdareceiver.mapper.MeteorologicalDataMapper;
-import com.pvsoul.datacollection.iotdareceiver.service.DataReceiveService;
+import com.pvsoul.datacollection.iotdareceiver.service.MeteorologicalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Service
 @Slf4j
-public class DataReceiveServiceImpl implements DataReceiveService {
+public class MeteorologicalServiceImpl implements MeteorologicalService {
 
     @Autowired
     private MeteorologicalDataMapper meteorologicalDataMapper;
