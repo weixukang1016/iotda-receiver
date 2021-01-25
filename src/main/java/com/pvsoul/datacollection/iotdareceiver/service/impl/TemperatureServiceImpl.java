@@ -3,7 +3,6 @@ package com.pvsoul.datacollection.iotdareceiver.service.impl;
 import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
 import com.pvsoul.datacollection.iotdareceiver.dao.TemperatureContentDao;
 import com.pvsoul.datacollection.iotdareceiver.entity.TemperatureData;
-import com.pvsoul.datacollection.iotdareceiver.mapper.MeteorologicalDataMapper;
 import com.pvsoul.datacollection.iotdareceiver.mapper.TemperatureDataMapper;
 import com.pvsoul.datacollection.iotdareceiver.service.TemperatureService;
 import lombok.extern.slf4j.Slf4j;
@@ -75,7 +74,7 @@ public class TemperatureServiceImpl implements TemperatureService {
         String id = UUID.randomUUID().toString();
         TemperatureData temperatureData = new TemperatureData();
         temperatureData.setId(id);
-        temperatureData.setIndex(index);
+        temperatureData.setSensorIndex(index);
         temperatureData.setDeviceId(deviceId);
         temperatureData.setTemperature(temperature);
         temperatureData.setCreateTime(createtime);
