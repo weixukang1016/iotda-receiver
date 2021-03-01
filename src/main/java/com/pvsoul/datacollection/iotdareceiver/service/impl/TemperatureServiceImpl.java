@@ -1,7 +1,7 @@
 package com.pvsoul.datacollection.iotdareceiver.service.impl;
 
-import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
-import com.pvsoul.datacollection.iotdareceiver.dao.TemperatureContentDao;
+import com.pvsoul.datacollection.iotdareceiver.dto.ResultDto;
+import com.pvsoul.datacollection.iotdareceiver.dto.TemperatureContentDto;
 import com.pvsoul.datacollection.iotdareceiver.entity.TemperatureData;
 import com.pvsoul.datacollection.iotdareceiver.mapper.TemperatureDataMapper;
 import com.pvsoul.datacollection.iotdareceiver.service.TemperatureService;
@@ -21,8 +21,8 @@ public class TemperatureServiceImpl implements TemperatureService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public ResultDao SaveData(TemperatureContentDao content) {
-        ResultDao resultDao = new ResultDao();
+    public ResultDto SaveData(TemperatureContentDto content) {
+        ResultDto resultDto = new ResultDto();
         Date now = new Date();
         String deviceId = content.getDeviceId();
 
@@ -66,7 +66,7 @@ public class TemperatureServiceImpl implements TemperatureService {
             TemperatureData temperatureData = getTemperatureData(9, deviceId, content.getTemperature9(), now);
             temperatureDataMapper.insert(temperatureData);
         }
-        return resultDao;
+        return resultDto;
     }
 
     private TemperatureData getTemperatureData(int index, String deviceId, Float temperature, Date createtime) {

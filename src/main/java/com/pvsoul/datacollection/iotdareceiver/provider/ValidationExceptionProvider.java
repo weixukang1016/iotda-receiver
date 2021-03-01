@@ -1,7 +1,7 @@
 package com.pvsoul.datacollection.iotdareceiver.provider;
 
 
-import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
+import com.pvsoul.datacollection.iotdareceiver.dto.ResultDto;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -18,10 +18,10 @@ public class ValidationExceptionProvider implements ExceptionMapper<ValidationEx
             strBuilder.append(";");
         }
 
-        ResultDao resultDao = new ResultDao();
-        resultDao.setCode("500");
-        resultDao.setMsg(strBuilder.toString());
-        resultDao.setSuccess(false);
-        return Response.status(Response.Status.OK).entity(resultDao).build();
+        ResultDto resultDto = new ResultDto();
+        resultDto.setCode("500");
+        resultDto.setMsg(strBuilder.toString());
+        resultDto.setSuccess(false);
+        return Response.status(Response.Status.OK).entity(resultDto).build();
     }
 }

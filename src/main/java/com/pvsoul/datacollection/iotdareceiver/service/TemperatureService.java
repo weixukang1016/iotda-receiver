@@ -1,8 +1,8 @@
 package com.pvsoul.datacollection.iotdareceiver.service;
 
-import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
-import com.pvsoul.datacollection.iotdareceiver.dao.TemperatureContentDao;
+import com.pvsoul.datacollection.iotdareceiver.dto.ResultDto;
+import com.pvsoul.datacollection.iotdareceiver.dto.TemperatureContentDto;
 
 public interface TemperatureService {
-    public ResultDao SaveData(TemperatureContentDao data);
+    public ResultDto SaveData(TemperatureContentDto data);
 }

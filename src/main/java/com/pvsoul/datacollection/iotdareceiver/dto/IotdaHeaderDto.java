@@ -1,4 +1,4 @@
-package com.pvsoul.datacollection.iotdareceiver.dao;
+package com.pvsoul.datacollection.iotdareceiver.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class IotdaHeaderDao implements Serializable {
+public class IotdaHeaderDto implements Serializable {
     private static final long serialVersionUID = 8956364323471511064L;
 
     @JsonProperty("app_id")

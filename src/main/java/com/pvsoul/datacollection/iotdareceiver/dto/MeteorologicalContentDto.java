@@ -1,4 +1,4 @@
-package com.pvsoul.datacollection.iotdareceiver.dao;
+package com.pvsoul.datacollection.iotdareceiver.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MeteorologicalContentDao implements Serializable {
+public class MeteorologicalContentDto implements Serializable {
     private static final long serialVersionUID = -5683478790869883064L;
 
     @JSONField(name="Device_ID")

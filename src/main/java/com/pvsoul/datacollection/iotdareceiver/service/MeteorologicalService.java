@@ -1,9 +1,9 @@
 package com.pvsoul.datacollection.iotdareceiver.service;
 
-import com.pvsoul.datacollection.iotdareceiver.dao.MeteorologicalContentDao;
-import com.pvsoul.datacollection.iotdareceiver.dao.ResultDao;
+import com.pvsoul.datacollection.iotdareceiver.dto.MeteorologicalContentDto;
+import com.pvsoul.datacollection.iotdareceiver.dto.ResultDto;
 
 public interface MeteorologicalService {
 
-    public ResultDao SaveData(MeteorologicalContentDao data);
+    public ResultDto SaveData(MeteorologicalContentDto data);
 }

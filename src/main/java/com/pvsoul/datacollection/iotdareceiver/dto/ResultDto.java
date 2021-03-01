@@ -1,4 +1,4 @@
-package com.pvsoul.datacollection.iotdareceiver.dao;
+package com.pvsoul.datacollection.iotdareceiver.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ResultDao implements Serializable {
+public class ResultDto implements Serializable {
 
     private static final long serialVersionUID = 3905756703742518796L;
 
@@ -26,9 +26,12 @@ public class ResultDao implements Serializable {
     @JsonProperty("code")
     private String code = "0";
 
-    //成功
+    //错误消息，成功的情况消息为空
     @JsonProperty("msg")
-    private String msg = "成功";
+    private String msg = "";
 
+    //成功
+    @JsonProperty("entity")
+    private Object entity;
 
 }

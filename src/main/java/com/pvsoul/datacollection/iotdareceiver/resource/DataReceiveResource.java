@@ -1,9 +1,9 @@
 package com.pvsoul.datacollection.iotdareceiver.resource;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.pvsoul.datacollection.iotdareceiver.dao.*;
+import com.pvsoul.datacollection.iotdareceiver.dto.*;
 import com.pvsoul.datacollection.iotdareceiver.service.MeteorologicalService;
+import com.pvsoul.datacollection.iotdareceiver.service.RedirectService;
 import com.pvsoul.datacollection.iotdareceiver.service.TemperatureService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +38,17 @@ public class DataReceiveResource {
     @Autowired
     private TemperatureService temperatureService;
 
+    @Autowired
+    private RedirectService redirectService;
+
     @POST
     @Path("/devicemessagereport")
     //@ApiOperation("接收iotda的数据")
-    public Response pushData(@Context HttpServletRequest request, IotdaDataDao data) {
+    public Response pushData(@Context HttpServletRequest request, IotdaDataDto data) {
 
         log.info(JSONObject.toJSONString(data));
+        ResultDto resultDto = redirectService.redirect(data);
+        /*
         IotdaHeaderDao iotdaHeaderDao = data.getNotifyData().getHeader();
         IotdaBodyDao iotdaBodyDao = data.getNotifyData().getBody();
         String topic = iotdaBodyDao.getTopic();
@@ -55,7 +60,8 @@ public class DataReceiveResource {
             TemperatureContentDao content = JSON.toJavaObject(data.getNotifyData().getBody().getContent(), TemperatureContentDao.class);
             resultDao = temperatureService.SaveData(content);
         }
-        return Response.status(Response.Status.OK).entity(resultDao).build();
+        */
+        return Response.status(Response.Status.OK).entity(resultDto).build();
     }
 
 }
