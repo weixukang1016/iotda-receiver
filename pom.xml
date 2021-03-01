@@ -18,6 +18,7 @@
         <java.version>1.8</java.version>
         <mybatis-generator.version>1.3.7</mybatis-generator.version>
         <fastjson.version>1.2.8</fastjson.version>
+        <feign.version>10.7.0</feign.version>
     </properties>
 
     <dependencies>
@@ -52,6 +53,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- open feign begin -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jackson</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <!-- open feign end -->
     </dependencies>
 
     <build>
