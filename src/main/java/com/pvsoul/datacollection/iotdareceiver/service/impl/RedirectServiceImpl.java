@@ -18,7 +18,6 @@ public class RedirectServiceImpl implements RedirectService {
         //TODO 目前先固定转发给远东电站，后续需要建立设备表，根据DeviceId来转发网站
         String baseUrl = "http://yuandong:8080/api/iotda";
         //String baseUrl = "http://localhost:8080/api/iotda";
-
         RedirectFeign redirectFeign = Feign.builder().encoder(new JacksonEncoder()).decoder(new JacksonDecoder())
                 .target(RedirectFeign.class, baseUrl);
         ResultDto resultDto = redirectFeign.redirect(data);

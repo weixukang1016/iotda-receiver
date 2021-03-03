@@ -5,8 +5,6 @@ import com.pvsoul.datacollection.iotdareceiver.dto.ResultDto;
 import feign.Headers;
 import feign.RequestLine;
 
-import javax.ws.rs.BeanParam;
-
 public interface RedirectFeign {
     @RequestLine("POST /receivedata")
     @Headers("Content-Type: application/json")
